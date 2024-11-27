@@ -28,7 +28,7 @@ function check() {
     error.appendChild(errorMsg);
     setTimeout(() => {
       error.innerHTML = "";
-    }, 1000);
+    }, 2500);
   } else {
     if (inputUserVal < newNumber && inputUserVal > 0) {
       let hint = document.getElementsByClassName("hint")[0];
@@ -38,7 +38,7 @@ function check() {
       score.push(0);
       setTimeout(() => {
         hint.innerHTML = "";
-      }, 1000);
+      }, 2500);
     } else if (inputUserVal > newNumber) {
       let hint = document.getElementsByClassName("hint")[0];
       let hintMsg = document.createElement("p");
@@ -47,7 +47,7 @@ function check() {
       score.push(0);
       setTimeout(() => {
         hint.innerHTML = "";
-      }, 1000);
+      }, 2500);
     } else {
       let hint = document.getElementsByClassName("hint")[0];
       let hintMsg = document.createElement("p");
@@ -55,7 +55,7 @@ function check() {
       hint.appendChild(hintMsg);
       setTimeout(() => {
         hint.innerHTML = "";
-      }, 1000);
+      }, 2500);
 
       score.push(1);
 
