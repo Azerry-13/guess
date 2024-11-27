@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./2598691.png" />
+    <title>Угадайка</title>
+  </head>
+  <body>
+    <script src="script.js"></script>
+
+    <div class="container">
+      <h1>Угадай число (5 раундов)</h1>
+
+      <div class="my-number">
+        <p>?</p>
+      </div>
+
+      <div class="score">
+        <p>Текущий счет: <span class="game-score"></span></p>
+        <p>Наивысший результат: <span class="highest-score"></span></p>
+      </div>
+
+      <div class="game-info">
+        <button onclick="start()">Начать</button>
+
+        <p>Между 1 - 64</p>
+
+        <input type="number" onfocus="this.value =''" ` />
+
+        <button onclick="check()" style="display: none">Проверить</button>
+        <button onclick="next()" style="display: none">Следующее</button>
+
+        <div class="error"></div>
+        <div class="hint"></div>
+      </div>
+    </div>
+    <hr />
+  </body>
+</html>
