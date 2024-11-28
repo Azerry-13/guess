@@ -21,10 +21,19 @@ function check() {
   setTimeout(() => {
     inputElement.value = "";
   }, 1);
+
   if (inputUserVal === 0) {
     let error = document.getElementsByClassName("error")[0];
     let errorMsg = document.createElement("p");
     errorMsg.textContent = "Заполни поле";
+    error.appendChild(errorMsg);
+    setTimeout(() => {
+      error.innerHTML = "";
+    }, 2500);
+  } else if (inputUserVal < 0) {
+    let error = document.getElementsByClassName("error")[0];
+    let errorMsg = document.createElement("p");
+    errorMsg.textContent = "Число должно быть больше 0";
     error.appendChild(errorMsg);
     setTimeout(() => {
       error.innerHTML = "";
@@ -80,7 +89,7 @@ function next() {
   score = [];
   buttons[2].style.display = "none";
 
-  if (gameCount.length == 5) {
+  if (gameCount.length == 3) {
     let game_score = document.getElementsByClassName("game-score")[0];
     let highest = document.getElementsByClassName("highest-score")[0];
     game_score.textContent = `${initialScore}`;
@@ -94,7 +103,7 @@ function next() {
     buttons[2].textContent = "Next";
   }
 
-  if (gameCount.length == 4) {
+  if (gameCount.length == 2) {
     buttons[2].textContent = "End";
   }
 
