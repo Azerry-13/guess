@@ -1,11 +1,22 @@
 let buttons = document.getElementsByTagName("button");
 let newNumber: number;
-let score: Array<Number> = [];
+let score: number[] = [];
 let initialScore: number = 0;
 let highest_score: number = 0;
 let my_number: HTMLParagraphElement;
 let nextStatus: boolean;
-let gameCount: Array<String> = [];
+let gameCount: string[] = [];
+let highestCache = localStorage.getItem("highestScoreStorage")
+  ? localStorage.getItem("highestScoreStorage")
+  : 0;
+let highest;
+
+window.addEventListener("load", (event) => {
+  highest = document.getElementsByClassName("highest-score")[0];
+  if (highest) {
+    highest.textContent = `${highestCache}`;
+  }
+});
 
 function start() {
   newNumber = Math.floor(Math.random() * 64) + 1;
@@ -91,20 +102,22 @@ function next() {
 
   if (gameCount.length == 3) {
     let game_score = document.getElementsByClassName("game-score")[0];
-    let highest = document.getElementsByClassName("highest-score")[0];
+    highest = document.getElementsByClassName("highest-score")[0];
     game_score.textContent = `${initialScore}`;
 
     if (highest_score < initialScore) {
       highest_score = initialScore;
-      highest.textContent = `${highest_score}`;
+      localStorage.setItem("highestScoreStorage", highest_score.toString());
+      highestCache = localStorage.getItem("highestScoreStorage");
+      highest.textContent = `${highestCache}`;
     }
 
     buttons[1].style.display = "none";
-    buttons[2].textContent = "Next";
+    buttons[2].textContent = "Следующее";
   }
 
   if (gameCount.length == 2) {
-    buttons[2].textContent = "End";
+    buttons[2].textContent = "Завершить";
   }
 
   newNumber = Math.floor(Math.random() * 64) + 1;
